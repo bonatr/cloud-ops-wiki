@@ -1,0 +1,10 @@
+# Default markdownlint rules for Cloud Ops Wiki
+# Ignored rules generally conflict with standard Markdown documentation practices or Mermaid.js
+
+MD013: false # Line length (We allow long lines so standard sentences don't need hard breaks)
+MD024: false # Multiple headings with the same content
+MD033: false # Inline HTML (MkDocs often requires HTML snippets or admonitions)
+MD041: false # First line in file should be a top level heading
+MD042: false # No empty links (We use '#' for placeholders in our tool templates)
+MD046: false # Code block style (Trips up over MkDocs Admonition/Tab formatting)
+MD030: false # Spaces after list markers (Disables strict 1-space requirements after bullets)
