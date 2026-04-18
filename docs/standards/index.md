@@ -10,7 +10,7 @@ Below is a sample architecture representing how incoming traffic routes to our m
 graph TD
     Client(("Client")) --> Cloudflare["Cloudflare CDN / WAF"]
     Cloudflare --> ALB["AWS Application Load Balancer"]
-    
+
     subgraph k8s_cluster ["Kubernetes Cluster"]
         NginxIngress["Ingress Controller (NGINX)"]
         Svc1["Frontend Service"]
@@ -18,23 +18,23 @@ graph TD
         Pod1("Frontend Pods")
         Pod2("Auth Service")
         Pod3("Billing Service")
-        
+
         NginxIngress --> Svc1
         NginxIngress --> Svc2
         Svc1 --> Pod1
         Svc2 --> Pod2
         Svc2 --> Pod3
     end
-    
+
     ALB --> NginxIngress
-    
+
     Pod2 --> Redis[("Redis Cache")]
     Pod3 --> DB[("PostgreSQL")]
 
     classDef aws_style fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:white;
     classDef k8s_style fill:#326CE5,stroke:#fff,stroke-width:2px,color:white;
     classDef db_style fill:#336791,stroke:#fff,stroke-width:2px,color:white;
-    
+
     class ALB aws_style;
     class NginxIngress,Svc1,Svc2 k8s_style;
     class DB db_style;
