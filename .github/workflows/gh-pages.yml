@@ -1,5 +1,6 @@
+---
 name: Deploy Cloud-Ops-Wiki
-on:
+"on":
   push:
     branches:
       - main
@@ -18,7 +19,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      
+        with:
+          fetch-depth: 0
+
       - name: GitHub Super-Linter
         uses: super-linter/super-linter/slim@v7
         env:
@@ -41,7 +44,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip' # <--- This is the DevOps "flex": Automatic caching
+          cache: 'pip'  # <--- This is the DevOps "flex": Automatic caching
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
