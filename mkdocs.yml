@@ -1,0 +1,7 @@
+site_name: Cloud-Ops-Wiki
+theme:
+  name: material
+  palette:
+    scheme: slate # Professional dark mode
+nav:
+  - Home: index.md
