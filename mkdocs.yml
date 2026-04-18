@@ -1,7 +1,46 @@
 site_name: Cloud-Ops-Wiki
+site_description: Platform Engineering & Cloud Operations Information hub.
+
 theme:
   name: material
   palette:
-    scheme: slate # Professional dark mode
+    scheme: slate
+    primary: indigo
+    accent: deep purple
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.magiclink
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+
 nav:
   - Home: index.md
+  - Getting Started: getting-started/index.md
+  - Troubleshooting: troubleshooting/index.md
+  - Standards: standards/index.md
+  - Tools: tools/index.md
